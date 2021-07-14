@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap");
 *,
 *::after,
 *::before {
@@ -11,7 +12,7 @@ body {
   overflow-x: hidden;
   width: 100vw;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Maven Pro" !important;
 }
 
 .container-logo {
@@ -66,7 +67,7 @@ body {
 }
 
 .search {
-  width: 14rem;
+  width: 16rem;
   background: white;
   border-radius: 200px;
   height: 2.5rem;
@@ -95,7 +96,6 @@ body {
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  margin-right: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,7 +122,8 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  letter-spacing: 1px;
+  font-size: 0.95rem;
+  letter-spacing: 1.3px;
   text-transform: capitalize;
 }
 
@@ -145,6 +146,8 @@ body {
 .general-nav__link {
   margin-bottom: 1.5rem;
   display: flex;
+  font-size: 0.95rem;
+  letter-spacing: 1.3px;
   align-items: center;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -198,7 +201,7 @@ body {
   width: 100vw;
   background-color: #ff424f;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
 }
 
 .nav {
@@ -211,6 +214,7 @@ body {
   background-color: #191c1f;
   color: white;
   padding-left: 2.5rem !important;
+  z-index: 10;
 }
 
 .home {
@@ -222,6 +226,7 @@ body {
   width: 100vw;
   height: 250vh;
   background-color: #222b31;
+  position: relative;
 }
 
 .footer {
@@ -243,5 +248,32 @@ body {
   justify-content: space-around;
   align-items: center;
   color: white;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+}
+
+.home {
+  width: 100vw;
+  height: 100vh;
+}
+
+.gradient {
+  width: calc(100vw - 15rem);
+  height: 100vh;
+  background-image: linear-gradient(to top left, #a72f2ba4 0%, #291f1fbe 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 /*# sourceMappingURL=main.min.css.map */
