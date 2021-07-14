@@ -14,7 +14,7 @@
   flex-direction: column;
   background-color: #191c1f;
   color: white;
-  padding-left: 2rem !important;
+  padding-left: 2.5rem !important;
 }
 .home {
   display: flex;
@@ -39,8 +39,12 @@
       url(../assests/marvel.jpg);
   }
   &__copy {
-    height: 50px;
+    padding: 0.8rem 0;
     width: calc(100vw - 15rem);
     background-color: #2a2b2c;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
   }
 }

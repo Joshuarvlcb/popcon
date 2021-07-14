@@ -56,7 +56,7 @@ body {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-image: url(https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin.jpg);
+  background-image: url(https://cdn.shopify.com/s/files/1/0169/6995/7440/products/G_2020_MVL_DP_HEAD_headshot01_0e0cea8c-8d7a-42c7-b056-9831a76a0151_2000x.jpg?v=1593474484);
   position: absolute;
   background-position: center;
   background-size: cover;
@@ -102,12 +102,95 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.menu-section {
+  margin-bottom: 1.5rem;
+}
+
 .menu {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.671);
+  font-size: 0.9rem;
+}
+
+.menu-nav {
+  padding: 0px;
+}
+
+.menu-nav__link {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.menu__icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
 }
 
 .general {
-  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.623);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.general-nav {
+  padding: 0px;
+}
+
+.general-nav__link {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+
+.general__icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.heart {
+  color: #ff424f;
+}
+
+.soon {
+  font-size: 1.3rem;
+}
+
+.setting {
+  font-size: 1.43rem;
+}
+
+.challenges-container {
+  left: 50%;
+  bottom: 3rem;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.challenges {
+  border-radius: 15px;
+  padding: 2rem;
+  background-color: #ff424fe0;
+  height: auto;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.up {
+  cursor: pointer;
+  font-size: 1.8rem;
 }
 
 .header {
@@ -127,7 +210,7 @@ body {
   flex-direction: column;
   background-color: #191c1f;
   color: white;
-  padding-left: 2rem !important;
+  padding-left: 2.5rem !important;
 }
 
 .home {
@@ -153,8 +236,12 @@ body {
 }
 
 .footer__copy {
-  height: 50px;
+  padding: 0.8rem 0;
   width: calc(100vw - 15rem);
   background-color: #2a2b2c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
