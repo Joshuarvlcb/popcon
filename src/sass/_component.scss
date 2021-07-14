@@ -1,0 +1,89 @@
+.container-logo {
+  min-width: 15rem;
+  background-color: #f83745;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  &__logo {
+    height: 80px;
+    width: 120px;
+    cursor: pointer;
+  }
+}
+.rest-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  .search {
+    margin-left: 3rem;
+  }
+  .user {
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    letter-spacing: 1px;
+    flex-direction: column;
+    margin-right: 5rem;
+    color: white;
+
+    font-size: 1.2rem;
+  }
+  .icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url(https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin.jpg);
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    bottom: -22px;
+    right: 5rem;
+    cursor: no-drop;
+  }
+}
+.search {
+  width: 14rem;
+
+  background: white;
+  border-radius: 200px;
+  height: $search-height;
+  display: flex;
+  align-items: center;
+  transition: all 0.75s ease-in-out;
+  &__icon {
+    font-size: 1.4rem;
+  }
+  &__text {
+    border: 0;
+    margin-left: 1rem;
+    background: transparent;
+    outline: 0;
+    color: rgb(22, 22, 22);
+    float: left;
+    line-height: $search-height;
+    transition: all 0.5s ease-in-out;
+    font-size: 1rem;
+  }
+
+  &__button {
+    border-radius: 50%;
+    height: $search-height;
+    width: $search-height;
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+//side nav
+.menu {
+  margin-bottom: 1rem;
+}
+.general {
+  margin-bottom: 1rem;
+}
