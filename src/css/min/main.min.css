@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 *,
 *::after,
 *::before {
@@ -161,11 +162,11 @@ body {
 }
 
 .heart {
-  color: #ff424f;
+  fill: #ff424f;
 }
 
 .soon {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .setting {
@@ -194,6 +195,103 @@ body {
 .up {
   cursor: pointer;
   font-size: 1.8rem;
+}
+
+.buttons-container {
+  color: white;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 110px;
+  left: 30px;
+}
+
+.back {
+  fill: #f3f3f3;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  z-index: 111;
+}
+
+.forward {
+  fill: #f3f3f3;
+  cursor: pointer;
+  z-index: 111;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 60px;
+}
+
+.content__stats {
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.808);
+}
+
+.content__stats > * {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.content__gist {
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+  color: white;
+  line-height: 1.8;
+  width: 28rem;
+}
+
+.content__title {
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.content__buttons button {
+  margin-right: 3rem;
+  border-radius: 70px;
+  outline: none;
+  border: none;
+  color: #f83939;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.content__buttons button svg {
+  font-size: 2rem;
+}
+
+.content__buttons button:first-child {
+  border-radius: 70px;
+  outline: none;
+  border: none;
+  color: #f83939;
+  padding: 0.8rem 2.5rem;
+}
+
+.stat {
+  font-size: 2rem;
+  fill: #ffabab;
+  margin-right: 5px;
+}
+
+.content__buttons_con {
+  display: flex;
+  align-items: center;
+}
+
+.add {
+  margin-left: 6px;
 }
 
 .header {
@@ -260,8 +358,9 @@ body {
 .gradient {
   width: calc(100vw - 15rem);
   height: 100vh;
-  background-image: linear-gradient(to top left, #a72f2ba4 0%, #291f1fbe 100%);
+  background-image: linear-gradient(to top left, #311615e0 0%, #291f1fd7 100%);
   position: absolute;
+  padding-top: 96px;
   top: 0;
   right: 0;
   z-index: 10;

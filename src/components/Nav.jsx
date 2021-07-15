@@ -1,6 +1,6 @@
 import React from "react";
 import { FiHeart } from "react-icons/fi";
-import { BsCalendar } from "react-icons/bs";
+import { GoCalendar } from "react-icons/go";
 import { BiMovie } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import { BiLogOut } from "react-icons/bi";
@@ -15,7 +15,7 @@ function Nav() {
             new releases
           </div>
           <div className="menu-nav__link">
-            <BsCalendar className="menu__icon soon" />
+            <GoCalendar className="menu__icon soon" />
             coming soon
           </div>
           <div className="menu-nav__link">

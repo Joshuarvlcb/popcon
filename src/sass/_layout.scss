@@ -59,8 +59,9 @@
 .gradient {
   width: calc(100vw - 15rem);
   height: 100vh;
-  background-image: linear-gradient(to top left, #a72f2ba4 0%, #291f1fbe 100%);
+  background-image: linear-gradient(to top left, #311615e0 0%, #291f1fd7 100%);
   position: absolute;
+  padding-top: 96px;
   top: 0;
   right: 0;
   z-index: 10;
