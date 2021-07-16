@@ -59,7 +59,7 @@
 .gradient {
   width: calc(100vw - 15rem);
   height: 100vh;
-  background-image: linear-gradient(to top left, #311615e0 0%, #291f1fd7 100%);
+  background-image: linear-gradient(to top left, #3d0f0fd3 0%, #301717d5 100%);
   position: absolute;
   padding-top: 96px;
   top: 0;
@@ -68,10 +68,9 @@
 }
 
 .image {
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  object-position: right;
   position: absolute;
   top: 0;
   left: 0;

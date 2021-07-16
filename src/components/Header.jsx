@@ -23,7 +23,9 @@ function Header() {
         </div>
         <div className="user">
           <div className="name">guest</div>
-          <div className="icon"></div>
+          <div className="icon">
+            <div className="online"></div>
+          </div>
         </div>
       </div>
     </div>

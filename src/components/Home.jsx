@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BiLeftArrow } from "react-icons/bi";
-import { BiRightArrow } from "react-icons/bi";
-import { AiOutlineStar } from "react-icons/ai";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { AiOutlineConsoleSql, AiOutlineStar } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BiCalendarHeart } from "react-icons/bi";
 import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
 import movieDb from "../apis/movie";
-function Home() {
+import { forward, back, home } from "../actions";
+import { connect } from "react-redux";
+function Home({ home, forward, back, current, items }) {
   const [image, setImage] = useState("");
   useEffect(() => {
     movieDb
@@ -19,18 +21,40 @@ function Home() {
             res.data.results[0].backdrop_path
         );
       });
-    console.log(image);
+    home();
+    console.log(items);
   }, []);
+  const title = () => {
+    if (items) return items[current].title;
+    else return "";
+  };
+  const images = () => {
+    if (items)
+      return "https://image.tmdb.org/t/p/w1280/" + items[current].backdrop_path;
+    else return "";
+  };
   return (
     <div className="home">
       <div className="gradient">
         <div className="buttons-container">
-          <BiLeftArrow className="back" />
-          <BiRightArrow className="forward" />
+          <MdKeyboardArrowLeft
+            className="back"
+            onClick={() => {
+              back();
+              console.log(current);
+            }}
+          />
+          <MdKeyboardArrowRight
+            className="forward"
+            onClick={() => {
+              forward();
+              console.log(current);
+            }}
+          />
         </div>
         <div className="content">
           {/* <div className="content__rate">8.2</div> */}
-          <div className="content__title">Black Widow</div>
+          <div className="content__title">{title()}</div>
           <div className="content__stats">
             <div className="content__stats__rate">
               <AiOutlineStar className="stat" />
@@ -66,9 +90,17 @@ function Home() {
         </div>
       </div>
 
-      <img src={image} className="image" />
+      <img src={images()} className="image" />
     </div>
   );
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return { items: state.home.items, current: state.home.current };
+};
+
+export default connect(mapStateToProps, {
+  home,
+  forward,
+  back,
+})(Home);

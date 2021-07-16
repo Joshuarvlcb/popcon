@@ -199,7 +199,7 @@ body {
 
 .buttons-container {
   color: white;
-  font-size: 2.5rem;
+  font-size: 3rem;
   position: absolute;
   top: 110px;
   left: 30px;
@@ -281,8 +281,8 @@ body {
 
 .stat {
   font-size: 2rem;
-  fill: #ffabab;
-  margin-right: 5px;
+  fill: white;
+  margin-right: 0.5rem;
 }
 
 .content__buttons_con {
@@ -292,6 +292,16 @@ body {
 
 .add {
   margin-left: 6px;
+}
+
+.online {
+  width: 15px;
+  border-radius: 50%;
+  height: 15px;
+  background-color: #0bff0b;
+  position: absolute;
+  bottom: 0px;
+  right: 2px;
 }
 
 .header {
@@ -358,7 +368,7 @@ body {
 .gradient {
   width: calc(100vw - 15rem);
   height: 100vh;
-  background-image: linear-gradient(to top left, #311615e0 0%, #291f1fd7 100%);
+  background-image: linear-gradient(to top left, #3d0f0fd3 0%, #301717d5 100%);
   position: absolute;
   padding-top: 96px;
   top: 0;
@@ -367,10 +377,9 @@ body {
 }
 
 .image {
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  object-position: right;
   position: absolute;
   top: 0;
   left: 0;
