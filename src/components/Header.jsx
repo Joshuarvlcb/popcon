@@ -9,14 +9,14 @@ function Header() {
       </div>
       <div className="rest-container">
         <div className="search-container d-flex align-items-center">
-          <div class="search">
+          <div className="search">
             <input
-              class="search__text"
+              className="search__text"
               type="text"
               name=""
               placeholder="Search for a movie"
             />
-            <a href="#" class="search__button">
+            <a href="#" className="search__button">
               <FcSearch className="search__icon" />
             </a>
           </div>

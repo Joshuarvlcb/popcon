@@ -251,6 +251,7 @@ body {
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  width: 45rem;
   letter-spacing: 5px;
   font-family: "Poppins", sans-serif;
 }
@@ -304,6 +305,55 @@ body {
   right: 2px;
 }
 
+.slider {
+  display: flex;
+  width: auto;
+}
+
+.card-container {
+  margin-left: 4rem;
+}
+
+.card {
+  height: 13rem;
+  width: 15rem;
+  background-color: transparent !important;
+}
+
+.card_image {
+  object-fit: cover;
+}
+
+.card_rating {
+  height: 2rem;
+  width: 2rem;
+  background-color: #e45858;
+  border-radius: 50%;
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.card_title {
+  margin-top: 0.8rem;
+  text-transform: capitalize;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.card_genres {
+  color: #a1cae5;
+}
+
+.first {
+  margin-bottom: 20rem;
+}
+
 .header {
   display: flex;
   width: 100vw;
@@ -332,7 +382,7 @@ body {
 
 .landing {
   width: 100vw;
-  height: 250vh;
+  height: 450vh;
   background-color: #222b31;
   position: relative;
 }
@@ -345,7 +395,7 @@ body {
 
 .footer__image {
   height: 200px;
-  background-image: linear-gradient(to right, rgba(95, 37, 37, 0.61), rgba(100, 25, 25, 0.548)), url(../assests/marvel.jpg);
+  background-image: linear-gradient(to right, rgba(95, 37, 37, 0.842), rgba(100, 25, 25, 0.836)), url(../assests/marvel.jpg);
 }
 
 .footer__copy {
@@ -383,5 +433,19 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.popular {
+  padding-left: 15rem;
+  width: calc(100vw - 15rem);
+  color: white;
+}
+
+.popular__title {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  margin-left: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 /*# sourceMappingURL=main.min.css.map */

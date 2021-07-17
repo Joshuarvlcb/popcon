@@ -6,31 +6,49 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { BiCalendarHeart } from "react-icons/bi";
 import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
-import movieDb from "../apis/movie";
-import { forward, back, home } from "../actions";
+import { forward, back, home, genre, cards, topRated } from "../actions";
 import { connect } from "react-redux";
-function Home({ home, forward, back, current, items }) {
-  const [image, setImage] = useState("");
+function Home({ home, forward, back, current, items, genre, genresArr }) {
+  let time;
+  let stop = false;
+  const homeTimer = (stop = null) => {
+    time = setInterval(() => {
+      forward();
+    }, 5000);
+  };
   useEffect(() => {
-    movieDb
-      .get("popular?api_key=2212668cd8ad1eca01050d6cc3907a99")
-      .then((res) => {
-        console.log(res.data.results[0]);
-        setImage(
-          "https://image.tmdb.org/t/p/w1280/" +
-            res.data.results[0].backdrop_path
-        );
-      });
     home();
+    homeTimer();
     console.log(items);
+    genre();
+    cards();
+    topRated();
   }, []);
+  useEffect(() => {
+    if (stop) {
+      clearInterval(time);
+      console.log("hi");
+    }
+  }, [current]);
   const title = () => {
     if (items) return items[current].title;
+    else return "";
+  };
+  const rating = () => {
+    if (items) return items[current].vote_average;
+    else return "";
+  };
+  const year = () => {
+    if (items) return new Date(items[current].release_date).getFullYear();
     else return "";
   };
   const images = () => {
     if (items)
       return "https://image.tmdb.org/t/p/w1280/" + items[current].backdrop_path;
+    else return "";
+  };
+  const overview = () => {
+    if (items) return items[current].overview;
     else return "";
   };
   return (
@@ -47,7 +65,14 @@ function Home({ home, forward, back, current, items }) {
           <MdKeyboardArrowRight
             className="forward"
             onClick={() => {
+              stop = true;
               forward();
+              console.log(items);
+              console.log(genresArr);
+              //   clearInterval(time);
+              //   setTimeout(() => {
+              //     homeTimer();
+              //   }, 5000);
               console.log(current);
             }}
           />
@@ -58,7 +83,7 @@ function Home({ home, forward, back, current, items }) {
           <div className="content__stats">
             <div className="content__stats__rate">
               <AiOutlineStar className="stat" />
-              IMDB:7.4
+              IMDB:{rating()}
             </div>
             <div className="content__stats__duration">
               <AiOutlineClockCircle className="stat" />
@@ -66,15 +91,10 @@ function Home({ home, forward, back, current, items }) {
             </div>
             <div className="content__stats__year">
               <BiCalendarHeart className="stat" />
-              YEAR:2021
+              YEAR:{year()}
             </div>
           </div>
-          <div className="content__gist">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex,
-            dolores rerum ipsa aperiam, veniam corporis sit iure, nobis sint
-            ullam animi possimus itaque cupiditate quam dolorem molestiae fugit
-            veritatis alias?
-          </div>
+          <div className="content__gist">{overview()}</div>
           <div className="content__buttons">
             <button>
               <div className="content__buttons_con">
@@ -96,11 +116,18 @@ function Home({ home, forward, back, current, items }) {
 }
 
 const mapStateToProps = (state) => {
-  return { items: state.home.items, current: state.home.current };
+  return {
+    items: state.home.items,
+    current: state.home.current,
+    genresArr: state.genres,
+  };
 };
 
 export default connect(mapStateToProps, {
   home,
   forward,
   back,
+  genre,
+  cards,
+  topRated,
 })(Home);
