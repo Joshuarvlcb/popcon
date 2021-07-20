@@ -3,7 +3,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineConsoleSql, AiOutlineStar } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { BiCalendarHeart } from "react-icons/bi";
+import { AiOutlineCalendar } from "react-icons/ai";
 import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
 import { forward, back, home, genre, cards, topRated } from "../actions";
@@ -52,7 +52,7 @@ function Home({ home, forward, back, current, items, genre, genresArr }) {
     else return "";
   };
   return (
-    <div className="home">
+    <div className="homeScreen">
       <div className="gradient">
         <div className="buttons-container">
           <MdKeyboardArrowLeft
@@ -90,7 +90,7 @@ function Home({ home, forward, back, current, items, genre, genresArr }) {
               DURATION:1H 58M
             </div>
             <div className="content__stats__year">
-              <BiCalendarHeart className="stat" />
+              <AiOutlineCalendar className="stat" />
               YEAR:{year()}
             </div>
           </div>

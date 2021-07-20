@@ -14,8 +14,8 @@ function Landing({ cards, topRated, cardsArr, topRatedArr }) {
     <div className="landing">
       <Home />
       <Footer />
-      <Popular title="Most Popular" data={cardsArr} />
-      <Popular title="Top Rated" data={topRatedArr} />
+      <Popular title="Most Popular" data={cardsArr} marginBottom={false} />
+      <Popular title="Top Rated" data={topRatedArr} marginBottom={true} />
     </div>
   );
 }

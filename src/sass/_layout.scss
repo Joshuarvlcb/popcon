@@ -20,16 +20,19 @@
 .home {
   display: flex;
   position: relative;
+  height: auto;
+}
+.homeScreen {
+  height: 100vh;
 }
 .landing {
   width: 100vw;
-  height: 450vh;
   background-color: #222b31;
   position: relative;
 }
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 0rem;
   right: 0;
   &__image {
     height: 200px;
@@ -54,12 +57,11 @@
 }
 .home {
   width: 100vw;
-  height: 100vh;
 }
 .gradient {
   width: calc(100vw - 15rem);
   height: 100vh;
-  background-image: linear-gradient(to top left, #3d0f0fd3 0%, #301717d5 100%);
+  background-image: linear-gradient(to top left, #5c0f0fd3 0%, #4e2424d5 100%);
   position: absolute;
   padding-top: 96px;
   top: 0;
