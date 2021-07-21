@@ -5,14 +5,16 @@ import Popular from "./Popular";
 import { topRated, cards } from "../actions";
 import { connect } from "react-redux";
 
-function Landing({ cards, topRated, cardsArr, topRatedArr }) {
+function Landing({ cards, topRated, cardsArr, topRatedArr, setLoader }) {
   useEffect(() => {
     cards();
     topRated();
+    setLoader(cardsArr);
   }, []);
+  useEffect(() => {});
   return (
     <div className="landing">
-      <Home />
+      <Home setLoader={setLoader} />
       <Footer />
       <Popular title="Most Popular" data={cardsArr} marginBottom={false} />
       <Popular title="Top Rated" data={topRatedArr} marginBottom={true} />

@@ -8,7 +8,16 @@ import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
 import { forward, back, home, genre, cards, topRated } from "../actions";
 import { connect } from "react-redux";
-function Home({ home, forward, back, current, items, genre, genresArr }) {
+function Home({
+  home,
+  forward,
+  back,
+  current,
+  items,
+  genre,
+  genresArr,
+  setLoader,
+}) {
   let time;
   let stop = false;
   const homeTimer = (stop = null) => {
@@ -16,6 +25,8 @@ function Home({ home, forward, back, current, items, genre, genresArr }) {
       forward();
     }, 5000);
   };
+  setLoader(items);
+
   useEffect(() => {
     home();
     homeTimer();
@@ -24,12 +35,6 @@ function Home({ home, forward, back, current, items, genre, genresArr }) {
     cards();
     topRated();
   }, []);
-  useEffect(() => {
-    if (stop) {
-      clearInterval(time);
-      console.log("hi");
-    }
-  }, [current]);
   const title = () => {
     if (items) return items[current].title;
     else return "";
