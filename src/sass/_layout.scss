@@ -57,6 +57,7 @@
 }
 .home {
   width: 100vw;
+  user-select: none;
 }
 .gradient {
   width: calc(100vw - 15rem);
@@ -74,6 +75,7 @@
   height: 100vh;
   object-position: right;
   position: absolute;
+  padding-top: 96px;
   top: 0;
   left: 0;
 }

@@ -18,23 +18,31 @@ function Home({
   genresArr,
   setLoader,
 }) {
-  let time;
-  let stop = false;
-  const homeTimer = (stop = null) => {
-    time = setInterval(() => {
-      forward();
-    }, 5000);
-  };
+  const [stop, setStop] = useState(false);
+
   setLoader(items);
 
   useEffect(() => {
     home();
-    homeTimer();
-    console.log(items);
+    const time = setInterval(() => {
+      forward();
+      console.log(stop);
+      if (stop) {
+        clearInterval(time);
+        setTimeout(() => {
+          console.log("hey timeout");
+          setInterval(time, 3000);
+          setStop(false);
+        }, 3000);
+      }
+    }, 3000);
     genre();
     cards();
     topRated();
-  }, []);
+    return () => {
+      clearInterval(time);
+    };
+  }, [stop]);
   const title = () => {
     if (items) return items[current].title;
     else return "";
@@ -62,23 +70,19 @@ function Home({
         <div className="buttons-container">
           <MdKeyboardArrowLeft
             className="back"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               back();
-              console.log(current);
+              setStop(true);
             }}
           />
           <MdKeyboardArrowRight
             className="forward"
-            onClick={() => {
-              stop = true;
+            onClick={(e) => {
+              e.preventDefault();
+
               forward();
-              console.log(items);
-              console.log(genresArr);
-              //   clearInterval(time);
-              //   setTimeout(() => {
-              //     homeTimer();
-              //   }, 5000);
-              console.log(current);
+              setStop(true);
             }}
           />
         </div>

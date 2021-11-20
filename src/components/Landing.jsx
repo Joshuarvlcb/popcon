@@ -15,14 +15,13 @@ function Landing({ cards, topRated, cardsArr, topRatedArr, setLoader }) {
   return (
     <div className="landing">
       <Home setLoader={setLoader} />
-      <Footer />
       <Popular title="Most Popular" data={cardsArr} marginBottom={false} />
       <Popular title="Top Rated" data={topRatedArr} marginBottom={true} />
+      <Footer />
     </div>
   );
 }
 const mapStateToProps = (state) => {
-  console.log(state);
   return { cardsArr: state.cards, topRatedArr: state.topRated };
 };
 export default connect(mapStateToProps, {

@@ -21,7 +21,6 @@ function Slider({ data, genres }) {
       e.preventDefault();
       setPressed(true);
       setStartX(e.offsetX - slider.current.offsetLeft);
-
       parentSlider.current.style.cursor = "grabbing";
     });
     parentSlider.current.addEventListener("mouseenter", () => {
@@ -37,9 +36,9 @@ function Slider({ data, genres }) {
       setPressed(false);
     });
     window.addEventListener("mousemove", handleUserMouse);
-    return () => {
-      window.removeEventListener("mousemove", handleUserMouse);
-    };
+    // return () => {
+    //   return window.removeEventListener("mousemove", handleUserMouse);
+    // };
   });
 
   return (
@@ -53,6 +52,9 @@ function Slider({ data, genres }) {
                 image={
                   "https://image.tmdb.org/t/p/w500/" + data[i]?.poster_path
                 }
+                onClick={() => {
+                  console.log("movie");
+                }}
                 rate={data[i]?.vote_average}
                 title={data[i]?.title}
                 genresArr={genres

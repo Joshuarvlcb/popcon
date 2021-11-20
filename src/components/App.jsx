@@ -11,16 +11,13 @@ function App({ cards, state }) {
 
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    console.log(state);
     if (state.cards.length !== 0) {
       setTimeout(() => {
         setLoader(false);
       }, 1000);
     }
   }, [state]);
-  const loaderStop = (data) => {
-    console.log("hi");
-  };
+  const loaderStop = (data) => {};
   return (
     <>
       {loader ? (
