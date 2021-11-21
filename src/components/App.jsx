@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import { Route, Routes } from "react-router";
 import Nav from "./Nav";
 import { cards } from "../actions/index";
 import { connect } from "react-redux";
 import Landing from "./Landing";
+import MoviePage from "../pages/Movie";
 function App({ cards, state }) {
   useEffect(() => {
     cards();
@@ -36,6 +38,9 @@ function App({ cards, state }) {
             <Nav />
             <Landing setLoader={loaderStop} />
           </div>
+          <Routes>
+            <Route exact path="/movie" element={<MoviePage />} />
+          </Routes>
         </>
       )}
     </>

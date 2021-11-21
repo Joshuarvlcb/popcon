@@ -22,6 +22,9 @@
   position: relative;
   height: auto;
 }
+.x0 {
+  transform: translateX(-100%);
+}
 .homeScreen {
   height: 100vh;
 }
@@ -76,6 +79,7 @@
   object-position: right;
   position: absolute;
   padding-top: 96px;
+  padding-left: 15rem;
   top: 0;
   left: 0;
 }

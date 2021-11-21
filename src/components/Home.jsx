@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineConsoleSql, AiOutlineStar } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { gsap, Power3 } from "gsap";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
@@ -19,30 +20,54 @@ function Home({
   setLoader,
 }) {
   const [stop, setStop] = useState(false);
+  let content = useRef(null);
 
   setLoader(items);
-
   useEffect(() => {
     home();
+    genre();
+    cards();
+    console.log("hi");
+    topRated();
+  }, []);
+  useEffect(() => {
     const time = setInterval(() => {
       forward();
       console.log(stop);
-      if (stop) {
-        clearInterval(time);
-        setTimeout(() => {
-          console.log("hey timeout");
-          setInterval(time, 3000);
-          setStop(false);
-        }, 3000);
-      }
-    }, 3000);
-    genre();
-    cards();
-    topRated();
+    }, 5000);
+    let out;
+    if (stop) {
+      clearInterval(time);
+      out = setTimeout(() => {
+        console.log("hey timeout");
+        setInterval(time, 5000);
+        setStop(false);
+      }, 5000);
+    }
+    gsap.to(content, {
+      opacity: 0,
+      y: "20px",
+    });
+    gsap.to(content, {
+      opacity: 1,
+      ease: Power3.ease,
+      y: 0,
+      delay: 0.8,
+    });
+
     return () => {
       clearInterval(time);
+      clearTimeout(out);
     };
-  }, [stop]);
+  }, [stop, current]);
+  useEffect(() => {
+    gsap.to(content, {
+      opacity: 1,
+      ease: Power3.ease,
+      delay: 0.5,
+      y: 0,
+    });
+  }, [content]);
   const title = () => {
     if (items) return items[current].title;
     else return "";
@@ -86,7 +111,7 @@ function Home({
             }}
           />
         </div>
-        <div className="content">
+        <div className="content" ref={(cont) => (content = cont)}>
           {/* <div className="content__rate">8.2</div> */}
           <div className="content__title">{title()}</div>
           <div className="content__stats">

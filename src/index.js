@@ -7,10 +7,13 @@ import "./sass/main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reducers from "./reducers";
 import thunk from "redux-thunk";
+import { BrowserRouter as Router } from "react-router-dom";
 const store = createStore(reducers, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

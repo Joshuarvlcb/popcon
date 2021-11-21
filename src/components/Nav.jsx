@@ -4,12 +4,17 @@ import { GoCalendar } from "react-icons/go";
 import { BiMovie } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import { BiLogOut } from "react-icons/bi";
+import { AiOutlineHome } from "react-icons/ai";
 function Nav() {
   return (
     <div className="nav">
       <div className="menu-section">
         <div className="menu">Menu</div>
         <ul className="menu-nav">
+          <div className="menu-nav__link">
+            <AiOutlineHome className="menu__icon" />
+            Home
+          </div>
           <div className="menu-nav__link">
             <BiMovie className="menu__icon" />
             new releases

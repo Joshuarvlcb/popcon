@@ -206,6 +206,8 @@ body {
 }
 
 .content {
+  opacity: 0;
+  transform: translateY(20px);
   margin-top: 6rem;
   margin-left: 3rem;
 }
@@ -295,7 +297,6 @@ body {
   width: 85vw;
   height: 30rem;
   position: relative;
-  cursor: pointer;
   margin-top: 5%;
   /* border: 2px solid violet; */
 }
@@ -310,7 +311,6 @@ body {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
-  pointer-events: none;
   /* border: 2px solid red; */
 }
 
@@ -327,6 +327,7 @@ body {
 }
 .card_image {
   object-fit: cover;
+  cursor: pointer;
 }
 .card_rating {
   height: 2rem;
@@ -457,6 +458,10 @@ body {
   height: auto;
 }
 
+.x0 {
+  transform: translateX(-100%);
+}
+
 .homeScreen {
   height: 100vh;
 }
@@ -510,6 +515,7 @@ body {
   object-position: right;
   position: absolute;
   padding-top: 96px;
+  padding-left: 15rem;
   top: 0;
   left: 0;
 }
