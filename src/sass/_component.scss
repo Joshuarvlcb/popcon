@@ -258,7 +258,7 @@
   margin-right: 0.5rem;
 }
 .margin-max {
-  padding-bottom: 30rem;
+  padding-bottom: 20rem;
 }
 .content__buttons_con {
   display: flex;
@@ -296,7 +296,6 @@
   height: 30rem;
   position: relative;
   margin-top: 5%;
-  /* border: 2px solid violet; */
 }
 .slider {
   width: 700%;
@@ -308,21 +307,34 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
-  /* border: 2px solid red; */
+  border: none;
+  outline: none;
 }
 
 .card-container {
-  margin-left: 4rem;
-  height: 8rem;
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+}
+.none {
+  text-decoration: none;
+  color: currentColor;
+  border: 0;
+  &:hover {
+    color: currentColor;
+  }
 }
 .card {
-  height: 8rem;
-  width: 15rem;
+  width: 10rem;
+  border: none !important;
+  outline: none;
   cursor: pointer !important;
   background-color: transparent !important;
   &_image {
-    object-fit: cover;
     cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    width: 10rem;
+    height: auto;
   }
   &_rating {
     height: 2rem;
@@ -343,6 +355,9 @@
     text-transform: capitalize;
     margin-bottom: 0.3rem;
     font-size: 1.2rem;
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
   }
   &_genres {
     color: #a1cae5;

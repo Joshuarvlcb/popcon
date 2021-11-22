@@ -49,12 +49,14 @@ function Slider({ data, genres }) {
               <Card
                 key={i}
                 image={
-                  "https://image.tmdb.org/t/p/w500/" + data[i]?.poster_path
+                  "https://image.tmdb.org/t/p/w200/" + data[i]?.poster_path
                 }
                 rate={data[i]?.vote_average}
                 title={data[i]?.title}
+                id={data[i]?.id}
                 genresArr={genres
-                  .filter(({ id, name }) => {
+
+                  ?.filter(({ id, name }) => {
                     return data[i]?.genre_ids.find(function (currId) {
                       if (currId == id) {
                         return name;

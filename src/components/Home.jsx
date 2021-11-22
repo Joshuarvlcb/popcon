@@ -27,23 +27,27 @@ function Home({
     home();
     genre();
     cards();
-    console.log("hi");
     topRated();
   }, []);
   useEffect(() => {
     const time = setInterval(() => {
       forward();
-      console.log(stop);
     }, 5000);
     let out;
     if (stop) {
       clearInterval(time);
       out = setTimeout(() => {
-        console.log("hey timeout");
         setInterval(time, 5000);
         setStop(false);
       }, 5000);
     }
+
+    return () => {
+      clearInterval(time);
+      clearTimeout(out);
+    };
+  }, [stop, current]);
+  useEffect(() => {
     gsap.to(content, {
       opacity: 0,
       y: "20px",
@@ -52,14 +56,9 @@ function Home({
       opacity: 1,
       ease: Power3.ease,
       y: 0,
-      delay: 0.8,
+      delay: 0.7,
     });
-
-    return () => {
-      clearInterval(time);
-      clearTimeout(out);
-    };
-  }, [stop, current]);
+  }, [current]);
   useEffect(() => {
     gsap.to(content, {
       opacity: 1,

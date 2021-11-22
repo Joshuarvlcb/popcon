@@ -6,6 +6,8 @@ import { cards } from "../actions/index";
 import { connect } from "react-redux";
 import Landing from "./Landing";
 import MoviePage from "../pages/Movie";
+import Actor from "../pages/Actor";
+import Search from "../pages/Search";
 function App({ cards, state }) {
   useEffect(() => {
     cards();
@@ -36,11 +38,17 @@ function App({ cards, state }) {
           <Header />
           <div className="home">
             <Nav />
-            <Landing setLoader={loaderStop} />
+            <Routes>
+              <Route
+                exact
+                path="/home"
+                element={<Landing setLoader={loaderStop} />}
+              />
+              <Route exact path="/actor" element={<Actor />} />
+              <Route exact path="/movie" element={<MoviePage />} />
+              <Route exact path="/Search" element={<Search />} />
+            </Routes>
           </div>
-          <Routes>
-            <Route exact path="/movie" element={<MoviePage />} />
-          </Routes>
         </>
       )}
     </>

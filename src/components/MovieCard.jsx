@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function MovieCard({ mini, image, rate, title, genresArr }) {
+import { connect } from "react-redux";
+import { getMovie } from "../actions";
+function MovieCard({ getMovie, image, rate, title, genresArr, id, state }) {
   return (
-    <Link to="/movie">
-      <div
-        onClick={() => {
-          console.log(rate);
-        }}
-        className="card-container"
-      >
+    <Link className="none" to={{ pathname: "/movie", search: `?id=${id}` }}>
+      <div className="card-container">
         <div className="card">
           <img className="card_image" src={image} alt="" />
           <div className={`card_rating ${rate > 8 ? "good" : ""}`}>{rate}</div>
@@ -25,4 +22,11 @@ function MovieCard({ mini, image, rate, title, genresArr }) {
     </Link>
   );
 }
-export default MovieCard;
+const mapStateToProps = (state) => {
+  return {
+    state,
+  };
+};
+export default connect(mapStateToProps, {
+  getMovie,
+})(MovieCard);

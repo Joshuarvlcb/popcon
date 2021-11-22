@@ -271,7 +271,7 @@ body {
 }
 
 .margin-max {
-  padding-bottom: 30rem;
+  padding-bottom: 20rem;
 }
 
 .content__buttons_con {
@@ -298,7 +298,6 @@ body {
   height: 30rem;
   position: relative;
   margin-top: 5%;
-  /* border: 2px solid violet; */
 }
 
 .slider {
@@ -311,23 +310,37 @@ body {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 0.5rem;
-  /* border: 2px solid red; */
+  border: none;
+  outline: none;
 }
 
 .card-container {
-  margin-left: 4rem;
-  height: 8rem;
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.none {
+  text-decoration: none;
+  color: currentColor;
+  border: 0;
+}
+.none:hover {
+  color: currentColor;
 }
 
 .card {
-  height: 8rem;
-  width: 15rem;
+  width: 10rem;
+  border: none !important;
+  outline: none;
   cursor: pointer !important;
   background-color: transparent !important;
 }
 .card_image {
-  object-fit: cover;
   cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  width: 10rem;
+  height: auto;
 }
 .card_rating {
   height: 2rem;
@@ -348,6 +361,9 @@ body {
   text-transform: capitalize;
   margin-bottom: 0.3rem;
   font-size: 1.2rem;
+  width: 10rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .card_genres {
   color: #a1cae5;
@@ -531,4 +547,43 @@ body {
   margin-left: 4rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
+}
+
+.movie {
+  background-color: #1e1e1e;
+  margin-left: 15rem;
+  margin-top: 96px;
+  width: calc(100vw - 15rem);
+  color: white;
+}
+
+.actor {
+  background-color: #1e1e1e;
+  margin-left: 15rem;
+  margin-top: 96px;
+  width: calc(100vw - 15rem);
+  color: white;
+}
+
+.search-con {
+  background-color: #1e1e1e;
+  margin-left: 15rem;
+  padding-right: 3rem;
+  margin-top: 96px;
+  width: calc(100vw - 15rem);
+  color: white;
+  position: relative;
+}
+
+.search-con .search-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-con .filter {
+  width: 160px;
+  height: 100%;
+  background-color: #323033;
+  position: fixed;
+  top: 0;
 }/*# sourceMappingURL=main.css.map */

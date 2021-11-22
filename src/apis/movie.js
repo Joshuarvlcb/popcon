@@ -5,5 +5,8 @@ export default axios.create({
 });
 
 export const genreApi = axios.create({
-  baseURL: "",
+  params: {
+    api_key: "2212668cd8ad1eca01050d6cc3907a99",
+    language: "en-US",
+  },
 });
