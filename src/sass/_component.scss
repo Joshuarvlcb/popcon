@@ -196,7 +196,7 @@
     color: white;
     line-height: 1.5;
     width: 28rem;
-    max-height: 6rem;
+    max-height: 8rem;
     overflow: hidden;
   }
   &__title {
@@ -241,7 +241,7 @@
   margin-right: 0.5rem;
 }
 .margin-max {
-  padding-bottom: 20rem;
+  padding-bottom: 8rem;
 }
 .content__buttons_con {
   display: flex;
@@ -280,8 +280,6 @@
   height: 20rem;
   position: relative;
   margin-top: 5%;
-  overflow-x: hidden;
-  margin-left:3rem
 }
 .slider {
   width: 700%;
@@ -300,6 +298,7 @@
 .card-container {
   margin-bottom: 3rem;
   width: 10rem;
+  margin-left: 3rem;
 }
 .none {
   text-decoration: none;
@@ -335,6 +334,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 111;
     font-size: 0.8rem;
   }
   &_title {
@@ -362,7 +362,6 @@
 .spinner {
   width: 140px;
   height: 140px;
-
   border-radius: 50%;
   perspective: 800px;
 }
@@ -426,8 +425,16 @@
 .body {
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #222b31;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 111111111111111111111111;
+}
+.movie__db {
+  height: 90px;
+  margin-right: 3rem;
 }

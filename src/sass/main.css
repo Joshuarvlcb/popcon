@@ -160,25 +160,6 @@ body {
   font-size: 1.43rem;
 }
 
-.challenges-container {
-  left: 50%;
-  bottom: 3rem;
-  transform: translateX(-50%);
-  position: absolute;
-}
-
-.challenges {
-  border-radius: 15px;
-  padding: 2rem;
-  background-color: #ff424fe0;
-  height: auto;
-  width: 12rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
 .up {
   cursor: pointer;
   font-size: 1.8rem;
@@ -228,7 +209,7 @@ body {
   color: white;
   line-height: 1.5;
   width: 28rem;
-  max-height: 6rem;
+  max-height: 8rem;
   overflow: hidden;
 }
 .content__title {
@@ -271,7 +252,7 @@ body {
 }
 
 .margin-max {
-  padding-bottom: 20rem;
+  padding-bottom: 8rem;
 }
 
 .content__buttons_con {
@@ -299,7 +280,6 @@ body {
   height: 20rem;
   position: relative;
   margin-top: 5%;
-  overflow: hidden;
 }
 
 .slider {
@@ -307,20 +287,19 @@ body {
   max-width: 220rem;
   height: 90%;
   position: absolute;
-  left: -100px;
+  left: 0px;
   top: 0;
   display: grid;
   grid-template-columns: repeat(10, 10rem);
   border: none;
   grid-gap: 4.3rem;
   outline: none;
-  z-index: 111111;
 }
 
 .card-container {
-  margin-left: 3rem;
   margin-bottom: 3rem;
   width: 10rem;
+  margin-left: 3rem;
 }
 
 .none {
@@ -357,6 +336,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 111;
   font-size: 0.8rem;
 }
 .card_title {
@@ -446,10 +426,19 @@ body {
 .body {
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #222b31;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 111111111111111110000000;
+}
+
+.movie__db {
+  height: 90px;
+  margin-right: 3rem;
 }
 
 .header {
@@ -457,7 +446,7 @@ body {
   width: 100vw;
   background-color: #ff424f;
   position: fixed;
-  z-index: 100;
+  z-index: 111111;
 }
 
 .nav {
@@ -470,7 +459,7 @@ body {
   background-color: #191c1f;
   color: white;
   padding-left: 2.5rem !important;
-  z-index: 11;
+  z-index: 11111;
 }
 
 .home {
@@ -499,6 +488,9 @@ body {
   right: 0;
 }
 .footer__image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   height: 200px;
   background-image: linear-gradient(to right, rgba(95, 37, 37, 0.842), rgba(100, 25, 25, 0.836)), url(../assests/marvel.jpg);
 }
@@ -591,7 +583,7 @@ body {
 .movie .actor-item {
   display: flex;
   align-items: center;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
   width: 300px;
   height: 100px;
 }
@@ -630,7 +622,7 @@ body {
   margin-left: 3rem;
   text-transform: capitalize;
   margin-bottom: 0;
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 .movie .content_container {

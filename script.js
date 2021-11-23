@@ -1,4 +1,3 @@
-"use strict";
 const parentSlider = document.querySelector(".slider-container");
 const childSlider = document.querySelector(".slider");
 
@@ -9,6 +8,7 @@ const handleUserMouse = (e) => {
   e.preventDefault();
   x = e.offsetX;
   childSlider.style.left = `${x - startX}px`;
+  console.log(e.offsetX);
 };
 parentSlider.addEventListener("mousedown", (e) => {
   pressed = true;
@@ -29,7 +29,7 @@ parentSlider.addEventListener("mouseup", () => {
 window.addEventListener("mouseup", () => {
   pressed = false;
 });
-window.addEventListener("mousemove", handleUserMouse);
+parentSlider.addEventListener("mousemove", handleUserMouse);
 
 // // slider card from Conor Bailey
 // const sdSliderContainer = document.querySelector(".slider-container");

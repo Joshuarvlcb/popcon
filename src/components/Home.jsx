@@ -49,10 +49,11 @@ function Home({
       clearTimeout(out);
     };
   }, [stop, current]);
+
   useEffect(() => {
     gsap.to(content, {
       opacity: 0,
-      y: "20px",
+      y: "30px",
     });
     gsap.to(content, {
       opacity: 1,
@@ -61,6 +62,7 @@ function Home({
       delay: 0.7,
     });
   }, [current]);
+
   useEffect(() => {
     gsap.to(content, {
       opacity: 1,

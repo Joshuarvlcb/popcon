@@ -10,14 +10,26 @@ import Slider from "../components/Slider";
 import { addingToWatchlist } from "../actions";
 
 const Movie = ({ movie, getMovie, addingToWatchlist, watchlist }) => {
-  const { url, getUrl } = useSearchContext();
+  const { url, getUrl, toggleLoader, loader } = useSearchContext();
   useEffect(() => {
-    if (url) getMovie(url);
+    setTimeout(() => {
+      toggleLoader(false);
+    }, 600);
+  }, [movie]);
+  useEffect(() => {
+    console.log(loader);
+  }, [loader]);
+  useEffect(() => {
+    if (url) {
+      getMovie(url);
+    }
     getMovie(new URLSearchParams(window.location.search).get("id"));
     console.log(movie.cast);
   }, [url]);
 
   useEffect(() => {
+    toggleLoader(true);
+
     window.onpopstate = function () {
       getUrl(new URLSearchParams(window.location.search).get("id"));
     };
@@ -91,6 +103,10 @@ const Movie = ({ movie, getMovie, addingToWatchlist, watchlist }) => {
               return (
                 <Link
                   className="none link-height"
+                  onClick={() => {
+                    window.scroll(0, 0);
+                    toggleLoader(true);
+                  }}
                   to={{ pathname: "/actor", search: `?id=${id}` }}
                 >
                   <div className="actor-item">

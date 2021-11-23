@@ -2,51 +2,59 @@ import React, { useEffect, useRef, useState } from "react";
 import Card from "./MovieCard";
 import { connect } from "react-redux";
 import { useSearchContext } from "../util/context";
-
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
 function Slider({ data, genres }) {
-  const [startX, setStartX] = useState(0);
-  const [pressed, setPressed] = useState(false);
-  const [x, setX] = useState(0);
+  gsap.registerPlugin(Draggable);
+
   const slider = useRef(null);
   const parentSlider = useRef(null);
-  const { getUrl } = useSearchContext();
+  const { getUrl, toggleLoader } = useSearchContext();
 
-  const handleUserMouse = (e) => {
-    if (!pressed) return;
-    e.preventDefault();
-    setX(e.offsetX);
-    slider.current.style.left = `${x - startX}px`;
-    console.log(e.offsetX);
-  };
+  // const handleUserMouse = (e) => {
+  //   if (!pressed) return;
+  //   e.preventDefault();
+  //   setX(e.offsetX);
+  //   slider.current.style.left = `${x - startX}px`;
+  //   console.log(e.offsetX);
+  // };
 
   useEffect(() => {
-    parentSlider.current.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      setPressed(true);
-      setStartX(e.offsetX - slider.current.offsetLeft);
-      parentSlider.current.style.cursor = "grabbing";
+    if (!slider) return;
+    Draggable.create(slider.current, {
+      type: "x",
+      bounds: {
+        minX: -1200,
+        maxX: 0,
+      },
     });
+    // parentSlider.current.addEventListener("mousedown", (e) => {
+    //   e.preventDefault();
+    //   setPressed(true);
+    //   setStartX(e.offsetX - slider.current.offsetLeft);
+    //   parentSlider.current.style.cursor = "grabbing";
+    // });
 
-    parentSlider.current.addEventListener("mouseenter", () => {
-      parentSlider.current.style.cursor = "grab";
-    });
-    window.addEventListener("mouseleave", () => {
-      parentSlider.current.style.cursor = "default";
-    });
-    parentSlider.current.addEventListener("mouseup", () => {
-      parentSlider.current.style.cursor = "grab";
-    });
-    window.addEventListener("mouseup", () => {
-      console.log(pressed);
-      setPressed(false);
-    });
+    // parentSlider.current.addEventListener("mouseenter", () => {
+    //   parentSlider.current.style.cursor = "grab";
+    // });
+    // window.addEventListener("mouseleave", () => {
+    //   parentSlider.current.style.cursor = "default";
+    // });
+    // parentSlider.current.addEventListener("mouseup", () => {
+    //   parentSlider.current.style.cursor = "grab";
+    // });
+    // window.addEventListener("mouseup", () => {
+    //   console.log(pressed);
+    //   setPressed(false);
+    // });
 
-    window.addEventListener("mousemove", handleUserMouse);
+    // parentSlider.current.addEventListener("mousemove", handleUserMouse);
 
-    return () => {
-      window.removeEventListener("mousemove", handleUserMouse);
-    };
-  }, []);
+    // return () => {
+    //   parentSlider.current.removeEventListener("mousemove", handleUserMouse);
+    // };
+  }, [slider]);
 
   return (
     <div ref={parentSlider} className="slider-container">
@@ -57,8 +65,9 @@ function Slider({ data, genres }) {
               <div
                 className={"card-div"}
                 onClick={() => {
-                  getUrl(new URLSearchParams(window.location.search).get("id"));
                   window.scroll(0, 0);
+                  getUrl(new URLSearchParams(window.location.search).get("id"));
+                  toggleLoader(true);
                 }}
               >
                 <Card

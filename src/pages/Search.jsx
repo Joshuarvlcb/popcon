@@ -6,8 +6,13 @@ import { search, inputSearch } from "../actions";
 import { useSearchContext } from "../util/context";
 const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
   const [pagination, setPagination] = useState(1);
-  const { search: s } = useSearchContext();
+  const { search: s, toggleLoader } = useSearchContext();
   useEffect(() => {
+    if (toggleLoader) {
+      setTimeout(() => {
+        toggleLoader(false);
+      }, 600);
+    }
     if (s) {
       setPagination(1);
       return inputSearch(s, pagination);
@@ -53,6 +58,9 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
           className="button"
           onClick={() => {
             if (pagination !== 1) {
+              toggleLoader(true);
+
+              window.scroll(0, 0);
               setPagination(pagination - 1);
             }
           }}
@@ -65,7 +73,11 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
         <div
           className="next"
           onClick={() => {
-            if(pagination === pages) return
+            if (pagination === pages) return;
+            toggleLoader(true);
+
+            window.scroll(0, 0);
+
             setPagination(pagination + 1);
           }}
         >

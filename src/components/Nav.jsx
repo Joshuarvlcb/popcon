@@ -7,7 +7,9 @@ import { GiDramaMasks } from "react-icons/gi";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSearchContext } from "../util/context";
 function Nav() {
+  const { toggleLoader } = useSearchContext();
   return (
     <div className="nav">
       <div className="menu-section">
@@ -19,7 +21,13 @@ function Nav() {
               Home
             </div>
           </Link>
-          <Link to="/search" className="none">
+          <Link
+            to="/search"
+            className="none"
+            onClick={() => {
+              toggleLoader(true);
+            }}
+          >
             <div className="menu-nav__link">
               <BiSearch className="menu__icon " />
               Search

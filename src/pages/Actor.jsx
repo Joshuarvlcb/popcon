@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getActor } from "../actions";
+import { useSearchContext } from "../util/context";
 import Slider from "../components/Slider";
 const Actor = ({ getActor, actorData }) => {
+  const { toggleLoader } = useSearchContext();
   useEffect(() => {
     getActor(new URLSearchParams(window.location.search).get("id"));
     console.log(actorData);
+
+    setTimeout(() => {
+      toggleLoader(false);
+    }, 600);
   }, []);
   return (
     <div className="actor">

@@ -9,17 +9,17 @@ import MoviePage from "../pages/Movie";
 import Actor from "../pages/Actor";
 import Search from "../pages/Search";
 import Watchlist from "../pages/Watchlist";
+import { useSearchContext } from "../util/context";
 function App({ cards, state }) {
   useEffect(() => {
     cards();
   }, []);
-
-  const [loader, setLoader] = useState(true);
+  const { loader, toggleLoader } = useSearchContext();
   useEffect(() => {
     if (state.cards.length !== 0) {
       setTimeout(() => {
-        setLoader(false);
-      }, 1000);
+        toggleLoader(false);
+      }, 500);
     }
   }, [state]);
   const loaderStop = (data) => {};
@@ -35,24 +35,24 @@ function App({ cards, state }) {
           </div>
         </div>
       ) : (
-        <>
-          <Header />
-          <div className="home">
-            <Nav />
-            <Routes>
-              <Route
-                exact
-                path="/home"
-                element={<Landing setLoader={loaderStop} />}
-              />
-              <Route exact path="/actor" element={<Actor />} />
-              <Route exact path="/movie" element={<MoviePage />} />
-              <Route exact path="/Search" element={<Search />} />
-              <Route exact path="/watchlist" element={<Watchlist />} />
-            </Routes>
-          </div>
-        </>
+        ""
       )}
+
+      <Header />
+      <div className="home">
+        <Nav />
+        <Routes>
+          <Route
+            exact
+            path="/home"
+            element={<Landing setLoader={loaderStop} />}
+          />
+          <Route exact path="/actor" element={<Actor />} />
+          <Route exact path="/movie" element={<MoviePage />} />
+          <Route exact path="/Search" element={<Search />} />
+          <Route exact path="/watchlist" element={<Watchlist />} />
+        </Routes>
+      </div>
     </>
   );
 }

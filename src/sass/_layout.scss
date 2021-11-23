@@ -3,7 +3,7 @@
   width: 100vw;
   background-color: #ff424f;
   position: fixed;
-  z-index: 100;
+  z-index: 111111;
 }
 .nav {
   padding-top: 8.5rem;
@@ -15,7 +15,7 @@
   background-color: #191c1f;
   color: white;
   padding-left: 2.5rem !important;
-  z-index: 11;
+  z-index: 11111;
 }
 .home {
   display: flex;
@@ -38,6 +38,9 @@
   bottom: 0rem;
   right: 0;
   &__image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     height: 200px;
     background-image: linear-gradient(
         to right,
