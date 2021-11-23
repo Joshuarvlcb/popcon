@@ -21,7 +21,8 @@ const Actor = ({ getActor, actorData }) => {
         </div>
       </div>
       <h3 className="known-for">known for</h3>
-      <Slider data={actorData?.stared} className="padding__right" />
+      <Slider data={actorData?.stared} />
+      <div className="margin-bottom"></div>
     </div>
   );
 };

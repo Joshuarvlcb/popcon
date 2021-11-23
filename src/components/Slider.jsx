@@ -11,37 +11,42 @@ function Slider({ data, genres }) {
   const parentSlider = useRef(null);
   const { getUrl } = useSearchContext();
 
-  // const handleUserMouse = (e) => {
-  //   if (!pressed) return;
-  //   e.preventDefault();
-  //   setX(e.offsetX);
+  const handleUserMouse = (e) => {
+    if (!pressed) return;
+    e.preventDefault();
+    setX(e.offsetX);
+    slider.current.style.left = `${x - startX}px`;
+    console.log(e.offsetX);
+  };
 
-  //   slider.current.style.left = `${x - startX}px`;
-  // };
-  // useEffect(() => {
-  //   parentSlider.current.addEventListener("mousedown", (e) => {
-  //     e.preventDefault();
-  //     setPressed(true);
-  //     setStartX(e.offsetX - slider.current.offsetLeft);
-  //     parentSlider.current.style.cursor = "grabbing";
-  //   });
-  //   parentSlider.current.addEventListener("mouseenter", () => {
-  //     parentSlider.current.style.cursor = "grab";
-  //   });
-  //   window.addEventListener("mouseleave", () => {
-  //     parentSlider.current.style.cursor = "default";
-  //   });
-  //   parentSlider.current.addEventListener("mouseup", () => {
-  //     parentSlider.current.style.cursor = "grab";
-  //   });
-  //   window.addEventListener("mouseup", () => {
-  //     setPressed(false);
-  //   });
-  //   window.addEventListener("mousemove", handleUserMouse);
-  //   return () => {
-  //     return window.removeEventListener("mousemove", handleUserMouse);
-  //   };
-  // }, []);
+  useEffect(() => {
+    parentSlider.current.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      setPressed(true);
+      setStartX(e.offsetX - slider.current.offsetLeft);
+      parentSlider.current.style.cursor = "grabbing";
+    });
+
+    parentSlider.current.addEventListener("mouseenter", () => {
+      parentSlider.current.style.cursor = "grab";
+    });
+    window.addEventListener("mouseleave", () => {
+      parentSlider.current.style.cursor = "default";
+    });
+    parentSlider.current.addEventListener("mouseup", () => {
+      parentSlider.current.style.cursor = "grab";
+    });
+    window.addEventListener("mouseup", () => {
+      console.log(pressed);
+      setPressed(false);
+    });
+
+    window.addEventListener("mousemove", handleUserMouse);
+
+    return () => {
+      window.removeEventListener("mousemove", handleUserMouse);
+    };
+  }, []);
 
   return (
     <div ref={parentSlider} className="slider-container">

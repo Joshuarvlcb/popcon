@@ -65,6 +65,7 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
         <div
           className="next"
           onClick={() => {
+            if(pagination === pages) return
             setPagination(pagination + 1);
           }}
         >

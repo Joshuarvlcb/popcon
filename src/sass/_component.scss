@@ -297,19 +297,21 @@
   height: 20rem;
   position: relative;
   margin-top: 5%;
+  overflow: hidden;
 }
 .slider {
   width: 700%;
   max-width: 220rem;
   height: 90%;
   position: absolute;
-  left: 0;
+  left: 0px;
   top: 0;
   display: grid;
   grid-template-columns: repeat(10, 10rem);
   border: none;
   grid-gap: 4.3rem;
   outline: none;
+  z-index: 111111;
 }
 
 .card-container {
@@ -321,7 +323,7 @@
   text-decoration: none;
   color: currentColor;
   border: 0;
-  min-height: 160px;
+
   &:hover {
     color: currentColor;
   }
@@ -334,7 +336,6 @@
   background-color: transparent !important;
 
   &_image {
-    cursor: pointer;
     border-radius: 5px;
     outline: none;
     width: 10rem;
@@ -365,6 +366,8 @@
   }
   &_genres {
     color: #a1cae5;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .first {

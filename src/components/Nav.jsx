@@ -27,7 +27,7 @@ function Nav() {
           </Link>
           <Link to="watchlist" className="none">
             <div className="menu-nav__link">
-              <FiHeart className="menu__icon heart" />
+              <FiHeart className="menu__icon " />
               watchlist
             </div>
           </Link>

@@ -7,7 +7,9 @@ import { BsPlayFill } from "react-icons/bs";
 import { RiHeartAddFill } from "react-icons/ri";
 import { useSearchContext } from "../util/context";
 import Slider from "../components/Slider";
-const Movie = ({ movie, getMovie }) => {
+import { addingToWatchlist } from "../actions";
+
+const Movie = ({ movie, getMovie, addingToWatchlist, watchlist }) => {
   const { url, getUrl } = useSearchContext();
   useEffect(() => {
     if (url) getMovie(url);
@@ -59,8 +61,20 @@ const Movie = ({ movie, getMovie }) => {
                 </div>
               </button>
               <button className="btn-add">
-                <div className="content__buttons_con">
-                  Add <RiHeartAddFill className="add" />
+                <div
+                  className="content__buttons_con"
+                  onClick={() => {
+                    addingToWatchlist(movie);
+                  }}
+                >
+                  Add{" "}
+                  <RiHeartAddFill
+                    className={`menu__icon add ${
+                      watchlist.find(({ title }) => title === movie.title)
+                        ? "heart"
+                        : ""
+                    }`}
+                  />
                 </div>
               </button>
             </div>
@@ -119,8 +133,9 @@ const Movie = ({ movie, getMovie }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { movie: state.getMovie };
+  return { movie: state.getMovie, watchlist: state.watchlistMovies };
 };
 export default connect(mapStateToProps, {
   getMovie,
+  addingToWatchlist,
 })(Movie);
