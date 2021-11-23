@@ -2,3 +2,8 @@
 @import "_component";
 @import "_layout";
 @import "./pages";
+.card-div {
+  margin: 0;
+  padding: 0;
+  min-height: 160px;
+}

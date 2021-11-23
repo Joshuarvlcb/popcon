@@ -17,7 +17,7 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
 
   return (
     <div className="search-con">
-      <h1>search</h1>
+      <h1 className="search-title">Search</h1>
       <div className="search-results">
         {searchResults?.map((data, i) => {
           return (
@@ -48,26 +48,28 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
           );
         })}
       </div>
-      <div className="pagination">
-        {pagination} of {pages}
-      </div>
-      <div
-        className="button"
-        onClick={() => {
-          if (pagination !== 1) {
-            setPagination(pagination - 1);
-          }
-        }}
-      >
-        prev
-      </div>
-      <div
-        className="next"
-        onClick={() => {
-          setPagination(pagination + 1);
-        }}
-      >
-        next
+      <div className="center">
+        <div
+          className="button"
+          onClick={() => {
+            if (pagination !== 1) {
+              setPagination(pagination - 1);
+            }
+          }}
+        >
+          Prev
+        </div>
+        <div className="pagination">
+          {pagination} of {pages}
+        </div>
+        <div
+          className="next"
+          onClick={() => {
+            setPagination(pagination + 1);
+          }}
+        >
+          Next
+        </div>
       </div>
     </div>
   );

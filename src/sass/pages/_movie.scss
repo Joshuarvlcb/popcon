@@ -4,4 +4,114 @@
   margin-top: 96px;
   width: calc(100vw - 15rem);
   color: white;
+  height: auto;
+  .margin-bottom {
+    margin-bottom: 2rem;
+  }
+
+  .link-height {
+    height: 120px;
+  }
+  .cast {
+    margin-top: 1rem;
+  }
+  .casting {
+    margin-left: 3rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .actor-item {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    width: 300px;
+    height: 100px;
+    .actor__image {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 1.5rem;
+      object-fit: cover;
+    }
+  }
+  .image_container {
+    position: relative;
+    width: calc(100vw - 15rem);
+    height: 450px;
+  }
+  &__image {
+    width: calc(100vw - 15rem);
+    height: 450px;
+    object-fit: fill;
+  }
+  .image_gradient {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.37),
+      #1e1e1e8e,
+      #1e1e1e
+    );
+  }
+  .similar-movies {
+    margin-left: 3rem;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  .content_container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .movie__poster-image {
+      height: 400px;
+      margin-right: 3rem;
+    }
+    .content_details {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 40%;
+      .movie__description {
+        width: 100%;
+        color: #b4b4b4;
+      }
+      .movie__name {
+        font-size: 2.3rem;
+      }
+      .movie__genres {
+        display: flex;
+        margin-bottom: 1.2rem;
+        margin-top: 0.5rem;
+        .genre {
+          margin-right: 1rem;
+          background-color: #414141;
+          padding: 0.5rem 0.6rem;
+          border-radius: 5px;
+        }
+      }
+      .movie__rating {
+        margin: 0.7rem 0;
+      }
+      .btn-play,
+      .btn-add {
+        padding: 0.7rem 2rem;
+        background-color: #414141;
+        color: white;
+      }
+    }
+  }
 }

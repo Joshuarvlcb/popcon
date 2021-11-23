@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getMovie } from "../actions";
-function MovieCard({ getMovie, image, rate, title, genresArr, id, state }) {
+function MovieCard({ image, rate, title, genresArr, id }) {
   return (
     <Link className="none" to={{ pathname: "/movie", search: `?id=${id}` }}>
       <div className="card-container">

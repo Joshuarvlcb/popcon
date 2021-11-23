@@ -78,7 +78,12 @@ export const getActor = (id) => async (dispatch) => {
   const { data } = await genreApi.get(
     `https://api.themoviedb.org/3/person/${id}`
   );
-
-  dispatch({ type: "FETCH_ACTOR", payload: data });
-  console.log(data);
+  const { data: d } = await genreApi.get(
+    `https://api.themoviedb.org/3/person/${id}/movie_credits`
+  );
+  dispatch({ type: "FETCH_ACTOR", payload: { ...data, stared: d.cast } });
 };
+
+export const addingToWatchlist = (movie) => {
+  return {type:"ADD_MOVIE",movie}
+}

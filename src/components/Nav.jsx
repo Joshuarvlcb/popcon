@@ -25,12 +25,6 @@ function Nav() {
               Search
             </div>
           </Link>
-          <Link to="popular" className="none">
-            <div className="menu-nav__link">
-              <GiDramaMasks className="menu__icon " />
-              Popular
-            </div>
-          </Link>
           <Link to="watchlist" className="none">
             <div className="menu-nav__link">
               <FiHeart className="menu__icon heart" />

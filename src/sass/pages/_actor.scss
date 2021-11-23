@@ -4,4 +4,34 @@
   margin-top: 96px;
   width: calc(100vw - 15rem);
   color: white;
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-start;
+  padding-top: 100px;
+  justify-content: center;
+  flex-direction: column;
+  .known-for {
+    margin-top: 1rem;
+    text-transform: capitalize;
+    padding-left: 3rem;
+  }
+  &__namee {
+    margin-bottom: 1.5rem;
+  }
+  &__profile {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 3rem;
+  }
+  &__description {
+    width: 120%;
+  }
+  .flex {
+    display: flex;
+    padding-left: 3rem;
+  }
+  .actor-details {
+    width: 50%;
+  }
 }

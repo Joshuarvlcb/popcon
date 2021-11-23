@@ -32,6 +32,23 @@ const search = (state = [], action) => {
   }
   return state;
 };
+const watchlistMovies = (state = [], payload) => {
+  if (payload.type === "ADD_MOVIE") {
+    if (
+      state.find(({ title }) => {
+        return title === payload.movie.title;
+      })
+    ) {
+      return state.filter(({ title }) => {
+        return title !== payload.movie.title;
+      });
+    }
+
+    return [...state, payload.movie];
+  }
+  return state;
+};
+
 export default combineReducers({
   home,
   cards,
@@ -40,4 +57,5 @@ export default combineReducers({
   getMovie,
   actor,
   search,
+  watchlistMovies,
 });

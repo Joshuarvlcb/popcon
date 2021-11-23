@@ -8,6 +8,7 @@ import Landing from "./Landing";
 import MoviePage from "../pages/Movie";
 import Actor from "../pages/Actor";
 import Search from "../pages/Search";
+import Watchlist from "../pages/Watchlist";
 function App({ cards, state }) {
   useEffect(() => {
     cards();
@@ -47,6 +48,7 @@ function App({ cards, state }) {
               <Route exact path="/actor" element={<Actor />} />
               <Route exact path="/movie" element={<MoviePage />} />
               <Route exact path="/Search" element={<Search />} />
+              <Route exact path="/watchlist" element={<Watchlist />} />
             </Routes>
           </div>
         </>

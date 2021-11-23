@@ -6,9 +6,10 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { gsap, Power3 } from "gsap";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BsPlayFill } from "react-icons/bs";
-import { RiHeartAddFill } from "react-icons/ri";
+import { FiHeart } from "react-icons/fi";
 import { forward, back, home, genre, cards, topRated } from "../actions";
 import { connect } from "react-redux";
+import { addingToWatchlist } from "../actions";
 function Home({
   home,
   forward,
@@ -16,8 +17,9 @@ function Home({
   current,
   items,
   genre,
-  genresArr,
+  addingToWatchlist,
   setLoader,
+  watchlist,
 }) {
   const [stop, setStop] = useState(false);
   let content = useRef(null);
@@ -104,7 +106,6 @@ function Home({
             className="forward"
             onClick={(e) => {
               e.preventDefault();
-
               forward();
               setStop(true);
             }}
@@ -135,8 +136,20 @@ function Home({
               </div>
             </button>
             <button>
-              <div className="content__buttons_con">
-                Add <RiHeartAddFill className="add" />
+              <div
+                className="content__buttons_con"
+                onClick={() => {
+                  addingToWatchlist(items[current]);
+                }}
+              >
+                Add{" "}
+                <FiHeart
+                  className={`menu__icon add ${
+                    watchlist.find(({ title }) => title == items[current].title)
+                      ? "heart"
+                      : ""
+                  }`}
+                />
               </div>
             </button>
           </div>
@@ -153,6 +166,7 @@ const mapStateToProps = (state) => {
     items: state.home.items,
     current: state.home.current,
     genresArr: state.genres,
+    watchlist: state.watchlistMovies,
   };
 };
 
@@ -163,4 +177,5 @@ export default connect(mapStateToProps, {
   genre,
   cards,
   topRated,
+  addingToWatchlist,
 })(Home);
