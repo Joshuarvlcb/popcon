@@ -179,6 +179,7 @@
     // color: #fd4450;
     // font-size: 3.5rem;
     display: flex;
+    font-size: 1rem;
     align-items: center;
     letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.808);
@@ -430,13 +431,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #222b31;
+  background: #222b31;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 111111111111111111111111;
+  z-index: 11111;
 }
 .movie__db {
   height: 90px;
   margin-right: 3rem;
+}
+
+.actor__name {
+  font-size: 1rem;
+}
+.actor__character {
+  font-size: 1rem;
 }
