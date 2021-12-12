@@ -25,7 +25,9 @@ function Nav() {
             to="/search"
             className="none"
             onClick={() => {
-              toggleLoader(true);
+              if (window.location.pathname !== "/search") {
+                toggleLoader(true);
+              }
             }}
           >
             <div className="menu-nav__link">

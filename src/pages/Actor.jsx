@@ -7,7 +7,6 @@ const Actor = ({ getActor, actorData }) => {
   const { toggleLoader } = useSearchContext();
   useEffect(() => {
     getActor(new URLSearchParams(window.location.search).get("id"));
-    console.log(actorData);
 
     setTimeout(() => {
       toggleLoader(false);

@@ -63,6 +63,7 @@ function Slider({ data, genres }) {
           if (data) {
             return (
               <div
+                key={i}
                 className={"card-div"}
                 onClick={() => {
                   window.scroll(0, 0);

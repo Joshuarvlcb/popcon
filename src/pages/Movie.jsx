@@ -16,15 +16,12 @@ const Movie = ({ movie, getMovie, addingToWatchlist, watchlist }) => {
       toggleLoader(false);
     }, 600);
   }, [movie]);
-  useEffect(() => {
-    console.log(loader);
-  }, [loader]);
+  useEffect(() => {}, [loader]);
   useEffect(() => {
     if (url) {
       getMovie(url);
     }
     getMovie(new URLSearchParams(window.location.search).get("id"));
-    console.log(movie.cast);
   }, [url]);
 
   useEffect(() => {
@@ -102,6 +99,7 @@ const Movie = ({ movie, getMovie, addingToWatchlist, watchlist }) => {
             .map(({ name, id, character, profile_path }) => {
               return (
                 <Link
+                  key={id}
                   className="none link-height"
                   onClick={() => {
                     window.scroll(0, 0);

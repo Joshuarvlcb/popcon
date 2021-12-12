@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import { cards } from "../actions/index";
 import { connect } from "react-redux";
@@ -11,7 +11,12 @@ import Search from "../pages/Search";
 import Watchlist from "../pages/Watchlist";
 import { useSearchContext } from "../util/context";
 function App({ cards, state }) {
+  const nav = useNavigate();
+
   useEffect(() => {
+    if (window.location.pathname == "/") {
+      nav("/home");
+    }
     cards();
   }, []);
   const { loader, toggleLoader } = useSearchContext();

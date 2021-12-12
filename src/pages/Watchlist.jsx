@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Card from "../components/MovieCard";
 const Watchlist = ({ likedMovies, genres }) => {
-  useEffect(() => {
-    console.log(likedMovies);
-  }, [likedMovies]);
-
   if (likedMovies.length === 0) {
     return (
       <div className="watchlist">
