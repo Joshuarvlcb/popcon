@@ -88,6 +88,7 @@
       width: 40%;
       .movie__description {
         width: 100%;
+        font-size: 1rem;
         color: #b4b4b4;
       }
       .movie__name {
@@ -97,6 +98,7 @@
         display: flex;
         margin-bottom: 1.2rem;
         margin-top: 0.5rem;
+        font-size: 1rem;
         .genre {
           margin-right: 1rem;
           background-color: #414141;
@@ -106,6 +108,7 @@
       }
       .movie__rating {
         margin: 0.7rem 0;
+        font-size: 1rem;
       }
       .btn-play,
       .btn-add {

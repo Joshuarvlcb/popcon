@@ -208,6 +208,7 @@ body {
   margin-bottom: 2rem;
   color: white;
   line-height: 1.5;
+  font-size: 1rem;
   width: 28rem;
   max-height: 8rem;
   overflow: hidden;
@@ -351,6 +352,7 @@ body {
 .card_genres {
   color: #a1cae5;
   white-space: nowrap;
+  font-size: 1rem;
   overflow: hidden;
 }
 
@@ -645,6 +647,7 @@ body {
 
 .movie .content_container .content_details .movie__description {
   width: 100%;
+  font-size: 1rem;
   color: #b4b4b4;
 }
 
@@ -656,6 +659,7 @@ body {
   display: flex;
   margin-bottom: 1.2rem;
   margin-top: 0.5rem;
+  font-size: 1rem;
 }
 
 .movie .content_container .content_details .movie__genres .genre {
@@ -667,6 +671,7 @@ body {
 
 .movie .content_container .content_details .movie__rating {
   margin: 0.7rem 0;
+  font-size: 1rem;
 }
 
 .movie .content_container .content_details .btn-play,
@@ -714,6 +719,7 @@ body {
 
 .actor__description {
   width: 120%;
+  font-size: 1rem;
 }
 
 .actor .flex {
