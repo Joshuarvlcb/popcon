@@ -24,34 +24,39 @@ const Search = ({ genres, searchResults, search, pages, inputSearch }) => {
     <div className="search-con">
       <h1 className="search-title">Search</h1>
       <div className="search-results">
-        {searchResults?.map((data, i) => {
-          return (
-            <Card
-              key={i}
-              image={
-                "https://image.tmdb.org/t/p/w220_and_h330_face/" +
-                data?.poster_path
-              }
-              rate={data?.vote_average}
-              title={data?.title}
-              id={data?.id}
-              genresArr={genres
+        {searchResults
+          ?.filter(({ poster_path }) => {
+            console.log(poster_path);
+            return poster_path !== null;
+          })
+          ?.map((data, i) => {
+            return (
+              <Card
+                key={i}
+                image={
+                  "https://image.tmdb.org/t/p/w220_and_h330_face/" +
+                  data?.poster_path
+                }
+                rate={data?.vote_average}
+                title={data?.title}
+                id={data?.id}
+                genresArr={genres
 
-                ?.filter(({ id, name }) => {
-                  return data?.genre_ids.find(function (currId) {
-                    if (currId == id) {
+                  ?.filter(({ id, name }) => {
+                    return data?.genre_ids.find(function (currId) {
+                      if (currId == id) {
+                        return name;
+                      }
+                    });
+                  })
+                  .filter(({ name }, i) => {
+                    if (i <= 1) {
                       return name;
                     }
-                  });
-                })
-                .filter(({ name }, i) => {
-                  if (i <= 1) {
-                    return name;
-                  }
-                })}
-            />
-          );
-        })}
+                  })}
+              />
+            );
+          })}
       </div>
       <div className="center">
         <div

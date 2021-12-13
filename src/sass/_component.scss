@@ -319,6 +319,7 @@
   background-color: transparent !important;
 
   &_image {
+    min-height: 160px !important;
     border-radius: 5px;
     outline: none;
     width: 10rem;

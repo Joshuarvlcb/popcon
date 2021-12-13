@@ -25,7 +25,10 @@ export const search =
     );
     dispatch({
       type: "FETCH_SEARCH",
-      payload: { data: data.data.results, pages: data.data.total_pages },
+      payload: {
+        data: data.data.results,
+        pages: data.data.total_pages,
+      },
     });
   };
 export const inputSearch =

@@ -10,13 +10,22 @@ function Landing({ cards, topRated, cardsArr, topRatedArr, setLoader }) {
     cards();
     topRated();
     setLoader(cardsArr);
+    console.log(cardsArr);
   }, []);
   useEffect(() => {});
   return (
     <div className="landing">
       <Home setLoader={setLoader} />
-      <Popular title="Most Popular" data={cardsArr} marginBottom={false} />
-      <Popular title="Top Rated" data={topRatedArr} marginBottom={true} />
+      <Popular
+        title="Most Popular"
+        data={cardsArr.filter(({ poster_path }) => poster_path !== null)}
+        marginBottom={false}
+      />
+      <Popular
+        title="Top Rated"
+        data={topRatedArr.filter(({ poster_path }) => poster_path !== null)}
+        marginBottom={true}
+      />
       <Footer />
     </div>
   );

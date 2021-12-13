@@ -321,6 +321,7 @@ body {
   background-color: transparent !important;
 }
 .card_image {
+  min-height: 160px !important;
   border-radius: 5px;
   outline: none;
   width: 10rem;
@@ -772,6 +773,7 @@ body {
 .search-con .center {
   display: flex;
   width: 100%;
+  font-size: 1rem;
   justify-content: center;
   padding-bottom: 3rem;
 }
