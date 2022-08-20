@@ -10,7 +10,7 @@ const Actor = ({ getActor, actorData }) => {
 
     setTimeout(() => {
       toggleLoader(false);
-    }, 600);
+    }, 601);
   }, []);
   return (
     <div className="actor">
